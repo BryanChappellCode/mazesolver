@@ -1,8 +1,9 @@
 from tkinter import Tk, BOTH, Canvas
+from line import Line
 
 class Window():
 
-    def __init__(self, width, height):
+    def __init__(self, width , height):
         self.width = width
         self.height = height
         self.__root = Tk()
@@ -14,8 +15,8 @@ class Window():
 
     def redraw(self):
 
-        self.root_widget.update_idletasks()
-        self.root_widget.update()
+        self.__root.update_idletasks()
+        self.__root.update()
 
     def wait_for_close(self):
         self.window_running = True
@@ -25,5 +26,8 @@ class Window():
 
     def close(self):
         self.window_running = False
+
+    def draw_line(self, line, fill_color):
+        line.draw(self.canvas, fill_color=fill_color)
 
 
