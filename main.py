@@ -1,22 +1,27 @@
 from window import Window
 from point import Point
 from line import Line
+from cell import Cell
+from constants import CELL_WIDTH, GRID_SIZE
 
 def main():
 
     win = Window(800, 600)
 
-    point_one = Point()
-    point_one.x = 0
-    point_one.y = 0
+    grid = []
 
-    point_two = Point()
-    point_two.x = 800
-    point_two.y = 600
+    for i in range(1, GRID_SIZE + 1):
+        row = []
+        for j in range(1, GRID_SIZE + 1):
+            row.append(Cell(j * CELL_WIDTH, i * CELL_WIDTH, j * CELL_WIDTH + CELL_WIDTH, i * CELL_WIDTH + CELL_WIDTH))
+            
+        grid.append(row)
 
-    line_one = Line(point_one, point_two)
-
-    win.draw_line(line_one, "red")
+ 
+    for row in grid:
+        for cell in row:
+            win.draw_cell(cell)
+    
 
     win.wait_for_close()
 

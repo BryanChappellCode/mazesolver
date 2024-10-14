@@ -1,0 +1,2 @@
+CELL_WIDTH = 50
+GRID_SIZE = 5
